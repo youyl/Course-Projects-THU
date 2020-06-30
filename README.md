@@ -1,7 +1,7 @@
 # Course-Projects-THU
 Collections of my Course Projects of the courses in Tsinghua University
 
-#### Foundation of Object-Oriented Programming
+### Foundation of Object-Oriented Programming:
 
 *Spring 2019*
 
@@ -9,7 +9,7 @@ A Computational Graph implemented with C++
 
 Able to train MLP on MNIST
 
-#### Programing and Training
+### Programing and Training:
 
 *Summer 2019*
 
@@ -17,7 +17,7 @@ Project1: A simple project to show the movements of liquid drops on a board, imp
 
 Project2: Online Chess game implemented with C++ Qt
 
-#### Introduction to Database Management System
+### Introduction to Database Management System:
 
 *Autumn 2019*
 
@@ -27,7 +27,7 @@ Page File System in this project is provided by the course's TA
 
 Although this passed the end-term check, there are still problems with page file system
 
-#### Fundamentals of Computer Graphics
+### Fundamentals of Computer Graphics:
 
 *Spring 2020*
 
