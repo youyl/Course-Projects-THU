@@ -1,0 +1,65 @@
+总共：
+
+sqlquery:
+	COPY tbname FROM path 
+	CREATE DATABASE dbname
+	CREATE TABLE tbname ( fieldlist )
+	CREATE INDEX idxname ON tbname ( collist )
+	USE dbname
+	DROP DATABASE dbname
+	DROP TABLE tbname
+	DROP INDEX idxname ON tbname
+	SHOW DATABASES
+	SHOW INDEXS
+	SHOW TABLES
+	DESC tbname
+	INSERT INTO tbname ( collist ) VALUES ( valuelist )
+	SELECT selector FROM fromclause WHERE whereclause
+	SELECT selector FROM fromclause
+	UPDATE tbname SET setclause WHERE whereclause
+	UPDATE tbname SET setclause
+	DELETE FROM tbname WHERE whereclause
+	DELETE FROM tbname
+尚未完成
+	ADD PRIMARY KEY tbname(collist)
+	检查合法性
+	删除原先的索引
+	加入新的索引
+	ADD FOREIGN KEY csname tbname(collist) tbname(collist)
+	检查合法性
+	遍历子表，检查主表的主键
+	DROP FOREIGN KEY csname
+	直接删除
+	DROP PRIMARY KEY tbname
+	删除约束
+	并同时删除索引
+	
+	左后一下
+	
+尚未测试：
+
+sqlquery:
+	USE dbname
+	SHOW DATABASES
+	CREATE DATABASE dbname
+	DROP DATABASE dbname
+	SHOW INDEXS
+	SHOW TABLES
+	DESC tbname
+	CREATE TABLE tbname ( fieldlist )
+	DROP TABLE tbname
+	CREATE INDEX idxname ON tbname ( collist )
+	DROP INDEX idxname ON tbname
+	COPY tbname FROM path 
+	INSERT INTO tbname ( collist ) VALUES ( valuelist )
+	SELECT selector FROM fromclause WHERE whereclause
+	SELECT selector FROM fromclause
+	UPDATE tbname SET setclause WHERE whereclause
+	UPDATE tbname SET setclause
+	DELETE FROM tbname WHERE whereclause
+	DELETE FROM tbname
+alterclause:
+	tbname ADD PRIMARY KEY ( collist )
+	tbname ADD FOREIGN KEY fkname colname REFERENCE tbname ( colname )
+	tbname DROP PRIMARY KEY
+	tbname DROP FOREIGN KEY fkname

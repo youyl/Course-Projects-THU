@@ -1,0 +1,125 @@
+sqlquery: //完成了所有语句第一个词的解析和分类
+
+	COPY tbname FROM path //完成
+	从文件导入一些元组
+
+	CREATE DATABASE dbname
+	建立新目录，并在目录下生成保存数据库头和索引汇总的文件 //parser
+
+	CREATE TABLE tbname ( fieldlist )
+	建立记录文件，并把对应信息存入数据库头 //sm
+
+	CREATE INDEX idxname ON tbname ( collist )
+	建立索引文件，并把所有已有元组加入索引，并修改索引汇总
+
+	USE dbname //完成
+	将目录调整到对应数据库的目录下 //parser
+
+	DROP DATABASE dbname
+	删除对应目录 //parser
+
+	DROP TABLE tbname
+	删除对应记录文件和索引文件，并修改数据库头 //sm
+
+	DROP INDEX idxname ON tbname
+	删除对应索引文件，并修改索引汇总
+
+	SHOW DATABASES //完成
+	输出目录下已有的数据库名称 //parser
+
+	SHOW INDEXS //完成
+	输出目录下所有索引名称和归属
+
+	SHOW TABLES //完成
+	输出当前目录下的所有表名称 //sm
+
+	DESC tbname //完成
+	输出对应名称的信息 //sm
+
+	INSERT INTO tbname ( collist ) VALUES ( valuelist ) 
+	直接给表和索引插入对应信息，前一个参数疑似不存在
+
+	SELECT selector FROM fromclause WHERE whereclause
+	SELECT selector FROM fromclause
+	难点，待补充
+
+	UPDATE tbname SET setclause WHERE whereclause
+	UPDATE tbname SET setclause
+	使用扫描/索引，配合后面的子句处理中间的子句
+
+	DELETE FROM tbname WHERE whereclause
+	DELETE FROM tbname
+	需要使用索引/扫描，配合后面的子句来处理删除
+
+	ALTER TABLE alterclause
+	
+alterclause:
+	tbname ADD PRIMARY KEY ( collist )
+	tbname ADD CONSTRAINT fkname FOREIGN KEY colname REFERENCE tbname ( colname )
+	tbname DROP PRIMARY KEY
+	tbname DROP FOREIGN KEY fkname
+
+setclause:
+	setitem 按逗号分隔
+
+fromclause:
+	selectclause（嵌套查询，选做）
+	tbname 按逗号分隔
+
+whereclause:
+	whereitem AND whereclause
+	whereitem OR whereclause //疑似不存在
+	whereitem
+
+selector: selector 按逗号分隔
+
+fieldlist: field 按逗号分隔
+
+valuelist: value 按逗号分隔
+
+collist: column 按逗号分隔
+
+setitem:
+	colname = value //四则运算暂不支持（？）
+
+selectitem:
+	_AGG( column )
+	column
+
+whereitem:
+	column IS NULL
+	column IS NOT NULL
+	column operator column
+	column LIKE stringvalue
+
+column:
+	tbname . colname
+	colname
+	value	//如此则禁止列名以纯数字形式出现
+
+field: type length not_null //待完善，外键还需处理
+	colname INT conslist
+	colname DECIMAL conslist
+	colname DATE conslist
+	colname CHAR( intvalue ) conslist
+	colname VARCHAR( intvalue ) conslist
+	colname BIGINT conslist
+	PRIMARY KEY ( collist )
+	FOREIGN KEY ( colname ) REFERENCE tbname ( colname ) //可能需要在前面加一个 CONSTRAINT fkname
+
+conslist:
+	NOT NULL conslist
+	DEFAULT value
+	PRIMARY KEY conslist
+
+value:
+	stringvalue //测试集中含有逗号，需要处理逗号的情况
+	intvalue
+	decimalvalue
+
+tbname: stringvalue
+dbname: stringvalue
+idxname: stringvalue
+colname: stringvalue
+operator: == < > <= >= <>
+type: INT BIGINT DECIMAL CHAR VARCHAR DATE

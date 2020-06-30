@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/piece">
+        <file alias="blackbishop">piece/black_bishop.png</file>
+        <file alias="blackking">piece/black_king.png</file>
+        <file alias="blackknight">piece/black_knight.png</file>
+        <file alias="blackpawn">piece/black_pawn.png</file>
+        <file alias="blackqueen">piece/black_queen.png</file>
+        <file alias="blackrook">piece/black_rook.png</file>
+        <file alias="whitebishop">piece/white_bishop.png</file>
+        <file alias="whiteking">piece/white_king.png</file>
+        <file alias="whiteknight">piece/white_knight.png</file>
+        <file alias="whitepawn">piece/white_pawn.png</file>
+        <file alias="whitequeen">piece/white_queen.png</file>
+        <file alias="whiterook">piece/white_rook.png</file>
+    </qresource>
+    <qresource prefix="/board">
+        <file>sample_input.txt</file>
+        <file>start_stat.txt</file>
+    </qresource>
+</RCC>

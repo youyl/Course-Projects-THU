@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/image">
+        <file alias="file">file.png</file>
+        <file alias="board">board.png</file>
+    </qresource>
+    <qresource prefix="/wav">
+        <file alias="expand">expand.wav</file>
+        <file alias="merge">merge.wav</file>
+        <file alias="move">move.wav</file>
+        <file alias="split">split.wav</file>
+    </qresource>
+</RCC>
